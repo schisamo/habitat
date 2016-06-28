@@ -21,8 +21,8 @@ trap 'rm -rf $workdir; exit $?' INT TERM EXIT
 rm -rf "$workdir"
 mkdir -p "$workdir"
 cd "$workdir"
-wget $hab_url -O $workdir/hab-latest.tar.gz
-wget $sha_url -O $workdir/hab-latest.tar.gz.sha256sum
+wget $hab_url -O $workdir/hab-latest.tar.gz --quiet
+wget $sha_url -O $workdir/hab-latest.tar.gz.sha256sum --quiet
 
 # Set the target file name for the slim archive
 archive="$workdir/$(cat hab-latest.tar.gz.sha256sum | cut -d ' ' -f 3)"
